@@ -1,0 +1,108 @@
+  <!-- Form  -->
+    <form (ngSubmit)="onSubmit()" #infoForm="ngForm">
+      <!-- Email, serve un backend per utilizzarla in qualche modo. -->
+      <!-- <div class="container">
+        <div class="row">
+          <p class="h4">Email</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 mx-auto">
+            <div class="form-group">
+              <input type="email" class="form-control" id="email" name="email" placeholder="api@coltore.it" #email="ngModel" required [(ngModel)]="model.email" ngControl="email">
+              <div [hidden]="email.valid || email.pristine" class="alert alert-danger"> L'email è richiesta</div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <!-- Informazioni sull'azienda -->
+      <div class="container">
+        <div class="row">
+          <p class="h4">Informazioni sull'azienda</p>
+        </div>
+        <div class="form-group" id="infoazienda">
+          <div class="row">
+            <div class="col-6 mx-auto">
+              <input type="text" name="nomeazienda" id="nomeazienda" class="form-control" placeholder="Nome azienda" required #nomeAzienda="ngModel" [(ngModel)]="model.nomeAzienda" ngControl="nomeAzienda"/>
+              <div [hidden]="nomeAzienda.valid || nomeAzienda.pristine" class="alert alert-danger"> Il nome dell'azienda è richiesto</div>
+            </div>
+            <div class="col-6 mx-auto">
+              <input type="text" name="recapito" id="recapito" class="form-control" placeholder="Recapito telefonico" required #recapito="ngModel" [(ngModel)]="model.recapito" ngControl="recapito"/>
+              <div [hidden]="recapito.valid || recapito.pristine" class="alert alert-danger"> Il recapito è richiesto</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6 mx-auto">
+              <input type="url" name="sito" id="sito" class="form-control" placeholder="Sito web" [(ngModel)]="model.sito" ngControl="sito"/>
+            </div>
+            <div class="col-6 mx-auto">
+              <input type="text" name="indirizzo" id="indirizzo" class="form-control" placeholder="Via dell'Università, 1" required #indirizzo="ngModel" [(ngModel)]="model.indirizzo" ngControl="indirizzo"/>
+              <div [hidden]="indirizzo.valid || indirizzo.pristine" class="alert alert-danger"> L'indirizzo è richiesto</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6 mx-auto">
+              <input type="text" name="citta" id="citta" class="form-control" placeholder="Cesena" required #citta="ngModel" [(ngModel)]="model.citta" ngControl="citta"/>
+              <div [hidden]="citta.valid || citta.pristine" class="alert alert-danger"> La città è richiesta</div>
+            </div>
+            <div class="col-6 mx-auto">
+              <input type="text" name="cap" id="cap" class="form-control" placeholder="47521" required #cap="ngModel" [(ngModel)]="model.cap" ngControl="cap"/>
+              <div [hidden]="cap.valid || cap.pristine" class="alert alert-danger"> L'email è richiesta</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Informazioni sul miele -->
+      <div class="container">
+        <div class="row">
+          <p class="h4">Informazioni sul miele</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 mx-auto">
+            <div class="form-group">
+              <div class="row mx-auto">
+                <input type="text" class="form-control col-12" name="nomemiele" id="nomemiele" placeholder="Nome del miele" required #nomeMiele="ngModel" [(ngModel)]="model.nomeMiele" ngControl="nomeMiele"/>
+                <div [hidden]="nomeMiele.valid || nomeMiele.pristine" class="alert alert-danger"> Il nome del miele è richiesto</div>
+              </div>
+              <div class="row mx-auto">
+                <textarea class="form-control col-12" name="descmiele" id="descmiele" rows="3" placeholder="Una breve descrizione del miele, massimo 50 caratteri"
+                  maxlenght="50" required #descMiele="ngModel" [(ngModel)]="model.descMiele" ngControl="descMiele"></textarea>
+                <div [hidden]="descMiele.valid || descMiele.pristine" class="alert alert-danger"> Una breve descrizione è richiesta</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Submit -->
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 mx-auto">
+            <div class="form-group">
+              <div class="row mx-auto">
+                <input [disabled]="!infoForm.form.valid" type="submit" class="form-control bg-secondary text-white col-9" id="genera" value="Genera QR Code"/>
+                <input type="reset" class="form-control bg-secondary text-white col-3" id="reset" value="Reset">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div [hidden]='!submitted' class="container">
+      <div class="row mx-auto">
+        <ngx-qrcode
+          [elementType]="elementType"
+          [value]="value"
+          class="text-center col-lg-12"
+          id = "print-section"
+          errorCorrectionLevel="L">
+        </ngx-qrcode>
+        <div class="row col-lg-12">
+          <button type="button" class="form-control bg-secondary text-white"
+           printTitle="Bee2Honey QR Code" printSectionId="print-section" ngxPrint>Stampa</button>
+        </div>
+        <!-- <div class="row col-lg-12">
+          <button type="button" class="form-control bg-secondary text-white"
+          >Salva</button>
+        </div> -->
+      </div>
+    </div>
