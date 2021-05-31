@@ -8,6 +8,7 @@ export class Honey {
     public citta: string,
     public cap: string,
     public nomeMiele: string,
+    // public nomeMiele: Map<String, Number>,
     public descMiele: string,
     public sito?: string,
 

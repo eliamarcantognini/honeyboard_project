@@ -60,7 +60,11 @@
           <div class="col-lg-12 mx-auto">
             <div class="form-group">
               <div class="row mx-auto">
-                <input type="text" class="form-control col-12" name="nomemiele" id="nomemiele" placeholder="Nome del miele" required #nomeMiele="ngModel" [(ngModel)]="model.nomeMiele" ngControl="nomeMiele"/>
+                <!-- <input type="text" class="form-control col-12" name="nomemiele" id="nomemiele" placeholder="Nome del miele" required #nomeMiele="ngModel" [(ngModel)]="model.nomeMiele" ngControl="nomeMiele"/> -->
+                <select placeholder="Seleziona il tipo di miele" class="form-control col-12" name="nomemiele" id="nomemiele" required #nomeMiele="ngModel" [(ngModel)]="model.nomeMiele" ngControl="nomeMiele">
+                  <option value="" disabled selected>Seleziona il tipo di miele</option>
+                  <option *ngFor="let range of getKeys(ranges)" [ngValue]="range"> {{ranges[range]}} </option>
+                </select>
                 <div [hidden]="nomeMiele.valid || nomeMiele.pristine" class="alert alert-danger"> Il nome del miele è richiesto</div>
               </div>
               <div class="row mx-auto">

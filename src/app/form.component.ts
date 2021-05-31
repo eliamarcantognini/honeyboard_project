@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { Honey } from './honey';
-
+import { HoneyNames } from './honeyNames';
 
 @Component({
   selector: 'info-form',
@@ -11,8 +11,8 @@ export class FormComponent {
 
   elementType = 'url';
   value = '';
-
-  model = new Honey('', '', '', '', '', '', '');
+  ranges = HoneyNames;
+  model = new Honey('', '', '', '', '', "", '');
 
   submitted = false;
 
@@ -26,13 +26,13 @@ export class FormComponent {
     // Fare un pack del json per risparmiare spazio?
     this.value = JSON.stringify({
       c: 'h', // carattere di controllo del qrcode
-      fN: this.model.nomeAzienda,
+      f: this.model.nomeAzienda,
       s: this.model.sito,
       n: this.model.recapito,
       a: this.model.indirizzo,
-      ci: this.model.citta,
-      ca: this.model.cap,
-      na: this.model.nomeMiele,
+      p: this.model.citta,
+      C: this.model.cap,
+      h: this.model.nomeMiele,
       d: this.model.descMiele
     });
   }
@@ -40,4 +40,9 @@ export class FormComponent {
   // sendEmail() {
     // Aggiungere un BaaS per farlo?
   // }
+
+  getKeys(obj: any){
+    // var isValueProperty = parseInt(obj, 10) >= 0
+    return Object.keys(obj).map(key => obj[key]).filter(value => typeof value === 'number') as string[];
+  }
 }
