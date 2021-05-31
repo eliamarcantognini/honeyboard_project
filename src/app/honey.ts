@@ -1,4 +1,4 @@
-export class Miele {
+export class Honey {
   constructor(
 
     // public email: string, // implementare la mail con un backend

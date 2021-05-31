@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Miele } from '../app/miele';
+import { Honey } from './honey';
 
 
 @Component({
@@ -12,7 +12,7 @@ export class FormComponent {
   elementType = 'url';
   value = '';
 
-  model = new Miele('', '', '', '', '', '', '');
+  model = new Honey('', '', '', '', '', '', '');
 
   submitted = false;
 
@@ -25,15 +25,15 @@ export class FormComponent {
   newQrCode() {
     // Fare un pack del json per risparmiare spazio?
     this.value = JSON.stringify({
-      c: 'hb', // carattere di controllo del qrcode
-      azienda: this.model.nomeAzienda,
-      sito: this.model.sito,
-      recapito: this.model.recapito,
-      indirizzo: this.model.indirizzo,
-      citta: this.model.citta,
-      cap: this.model.cap,
-      miele: this.model.nomeMiele,
-      desc: this.model.descMiele
+      c: 'h', // carattere di controllo del qrcode
+      fN: this.model.nomeAzienda,
+      s: this.model.sito,
+      n: this.model.recapito,
+      a: this.model.indirizzo,
+      ci: this.model.citta,
+      ca: this.model.cap,
+      na: this.model.nomeMiele,
+      d: this.model.descMiele
     });
   }
 
