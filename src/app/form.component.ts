@@ -12,6 +12,7 @@ export class FormComponent {
   elementType = 'url';
   value = '';
   ranges = HoneyNames;
+  remainingText = 50;
   model = new Honey('', '', '', '', '', "", '');
 
   submitted = false;
@@ -44,5 +45,9 @@ export class FormComponent {
   getKeys(obj: any){
     // var isValueProperty = parseInt(obj, 10) >= 0
     return Object.keys(obj).map(key => obj[key]).filter(value => typeof value === 'number') as string[];
+  }
+
+  textChange(value) {
+    this.remainingText = 50 - value.length
   }
 }
