@@ -24,9 +24,12 @@ export class FormComponent {
   }
 
   newQrCode() {
+    let possibile = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz";
+    const lengthOfCode = 15
+    const token = this.makeRandomToken(lengthOfCode, possibile)
     // Fare un pack del json per risparmiare spazio?
     this.value = JSON.stringify({
-      c: 'h', // carattere di controllo del qrcode
+      c: token, // token di controllo del qrcode
       f: this.model.nomeAzienda,
       s: this.model.sito,
       n: this.model.recapito,
@@ -49,5 +52,13 @@ export class FormComponent {
 
   textChange(value) {
     this.remainingText = 50 - value.length
+  }
+
+  makeRandomToken(lengthOfCode: number, possible: string) {
+    let text = "";
+    for (let i = 0; i < lengthOfCode; i++) {
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+      return text;
   }
 }
