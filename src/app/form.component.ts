@@ -25,7 +25,7 @@ export class FormComponent {
 
   newQrCode() {
     let possibile = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz";
-    const lengthOfCode = 15
+    const lengthOfCode = 18
     const token = this.makeRandomToken(lengthOfCode, possibile)
     // Fare un pack del json per risparmiare spazio?
     this.value = JSON.stringify({
