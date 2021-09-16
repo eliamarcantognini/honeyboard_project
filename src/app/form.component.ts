@@ -12,8 +12,8 @@ export class FormComponent {
   elementType = 'url';
   value = '';
   ranges = HoneyNames;
-  remainingText = 50;
-  model = new Honey('', '', '', '', '', "", '');
+  remainingText = 100;
+  model = new Honey('', '', '', '', '', '', '');
 
   submitted = false;
 
