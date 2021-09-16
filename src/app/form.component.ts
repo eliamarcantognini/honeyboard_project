@@ -49,7 +49,7 @@ export class FormComponent {
   }
 
   textChange(value) {
-    this.remainingText = 50 - value.length
+    this.remainingText = 100 - value.length
   }
 
   getToken() {
