@@ -68,7 +68,7 @@
                 <div [hidden]="nomeMiele.valid || nomeMiele.pristine" class="alert alert-danger"> Il nome del miele è richiesto</div>
               </div>
               <div class="row mx-auto textarea-wrapper">
-                <textarea pInputTextArea class="form-control col-12" name="descmiele" id="descmiele" rows="3" placeholder="Una breve descrizione del miele, massimo 50 caratteri"
+                <textarea pInputTextArea class="form-control col-12" name="descmiele" id="descmiele" rows="3" placeholder="Una breve descrizione del miele, massimo 100 caratteri"
                   maxlength="50" required #descMiele="ngModel" [(ngModel)]="model.descMiele" ngControl="descMiele" (ngModelChange)="textChange(model.descMiele)"></textarea>
                 <div [hidden]="descMiele.valid || descMiele.pristine" class="alert alert-danger"> Una breve descrizione è richiesta</div>
                 <span class="remaning">{{remainingText}}</span>
